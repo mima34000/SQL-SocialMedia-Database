@@ -1,0 +1,1 @@
+-- create tables for social media database
