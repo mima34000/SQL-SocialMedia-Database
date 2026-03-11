@@ -1,21 +1,17 @@
-CREATE TABLE Users(
-Id INT PRIMARY KEY,
-Username NVARCHAR(50) NOT NULL,
-Email NVARCHAR(100)
-);
+INSERT INTO Users VALUES
+(1,'Anna','anna@email.com'),
+(2,'Mark','mark@email.com'),
+(3,'Sara','sara@email.com'),
+(4,'David','david@email.com');
 
-CREATE TABLE Posts(
-Id INT PRIMARY KEY,
-Content NVARCHAR(200),
-UserId INT,
-FOREIGN KEY(UserId) REFERENCES Users(Id)
-);
+INSERT INTO Posts VALUES
+(1,'Learning SQL',1),
+(2,'Databases are fun',2),
+(3,'C# and LINQ',3),
+(4,'Working with joins',1);
 
-CREATE TABLE Likes(
-Id INT PRIMARY KEY,
-UserId INT,
-PostId INT,
-FOREIGN KEY(UserId) REFERENCES Users(Id),
-FOREIGN KEY(PostId) REFERENCES Posts(Id)
-);
-
+INSERT INTO Likes VALUES
+(1,2,1),
+(2,3,1),
+(3,4,2),
+(4,1,3);
