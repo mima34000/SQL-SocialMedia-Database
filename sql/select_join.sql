@@ -1,13 +1,13 @@
--- join queries
+SELECT 
+    Users.Username,
+    Posts.Content
+FROM Users
+JOIN Posts ON Users.Id = Posts.UserId;
 
--- show posts with the username of the author
-SELECT Posts.Content, Users.Username
-FROM Posts
-JOIN Users ON Posts.UserId = Users.Id;
-
--- show which user liked which post
-SELECT Users.Username, Posts.Content
+SELECT 
+    Users.Username,
+    Posts.Content,
+    Likes.Id AS LikeId
 FROM Likes
 JOIN Users ON Likes.UserId = Users.Id
 JOIN Posts ON Likes.PostId = Posts.Id;
-
