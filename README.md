@@ -8,3 +8,52 @@ Mirjana Ristic
 # Security Database: security is important because databases often store sensitive information about users. Authentication ensures that the system knows who the user is, usually through login credentials. Authorization determines what actions a user is allowed to perform. In backend applications it is important to protect data using secure connections, input validation, and parameterized queries to prevent SQL injection. 
 # Reflection During this project: I learned how relational databases are structured and how tables can be connected using relationships. I worked with creating tables, defining primary and foreign keys, and writing different SQL queries such as SELECT, JOIN, UPDATE and DELETE. One challenge was understanding how foreign keys connect tables and how JOIN queries combine data from multiple tables. The project also helped me understand the difference between SQL queries and LINQ queries in C#. In the future the project could be improved by adding more tables, more advanced queries and additional functionality.
 
+
+## SQL och LINQ jämförelse
+
+### Exempel 1
+
+SQL:
+SELECT * FROM Users;
+
+LINQ:
+var users = db.Users.ToList();
+
+Förklaring:
+SQL hämtar alla rader från tabellen Users. 
+I LINQ används DbSet Users i Entity Framework för att hämta alla användare från databasen.
+
+---
+
+### Exempel 2
+
+SQL:
+SELECT * FROM Posts
+WHERE UserId = 1;
+
+LINQ:
+var posts = db.Posts
+    .Where(p => p.UserId == 1)
+    .ToList();
+
+Förklaring:
+SQL filtrerar poster där UserId är 1. 
+I LINQ används Where() för att filtrera samma data.
+
+---
+
+### Exempel 3
+
+SQL:
+SELECT Username FROM Users
+ORDER BY Username;
+
+LINQ:
+var users = db.Users
+    .OrderBy(u => u.Username)
+    .Select(u => u.Username)
+    .ToList();
+
+Förklaring:
+SQL sorterar användare efter Username. 
+LINQ använder OrderBy() för att sortera resultatet.
