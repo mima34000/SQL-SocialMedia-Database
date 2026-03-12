@@ -9,5 +9,5 @@ SELECT
     Posts.Content,
     Likes.Id AS LikeId
 FROM Likes
-JOIN Users ON Likes.UserId = Users.Id
+JOIN Users ON Likes.UserId = Users.Id;
 JOIN Posts ON Likes.PostId = Posts.Id;
